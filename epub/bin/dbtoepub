@@ -17,7 +17,7 @@
 #                                        layer (imports epub/docbook.xsl).
 #     -v, --verbose                    Make output verbose.
 
-lib = File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
+lib= '@@EPUBDIR@@/lib'
 $LOAD_PATH.unshift(lib) if File.exist?(lib)
 
 require 'fileutils'
