@@ -1,20 +1,3 @@
-#
-# spec file for package docbook-xsl-stylesheets
-#
-# Copyright (c) 2012 SUSE LINUX Products GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
-
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-#
-
 %define pack_vers 1.77.1
 %define regcat /usr/bin/sgml-register-catalog
 
@@ -27,7 +10,6 @@ Url:            http://sourceforge.net/projects/docbook/
 Group:          Productivity/Publishing/DocBook
 Source0:        http://switch.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-%{pack_vers}.tar.bz2
 Source1:        http://switch.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-doc-%{version}.tar.bz2
-Patch0:         %{name}-dbtoepub.patch
 BuildRequires:  fdupes
 BuildRequires:  sgml-skel
 BuildRequires:  unzip
@@ -36,7 +18,6 @@ Requires(pre):  /usr/bin/xmlcatalog
 Requires(pre):  sgml-skel
 Requires:       docbook_4
 Requires:       xmlcharent
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 
 %description
@@ -75,7 +56,6 @@ http://www.w3.org/Style/XSL/
 %prep
 # %%setup -q -n docbook-xsl-%%{pack_vers} -b 10
 %setup -q -n docbook-xsl-%{pack_vers} -b 1
-%patch0 -p1
 
 # mv epub/bin/dbtoepub epub/bin/dbtoepub.tmp
 sed -i 's=@@EPUBDIR@@=%{xml_mod_style_prod_dir}/current//epub/bin='  epub/bin/dbtoepub
