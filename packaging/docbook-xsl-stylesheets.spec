@@ -202,6 +202,7 @@ if [ ! -f %{xml_sysconf_dir}/%{FOR_ROOT_CAT} -a -x /usr/bin/edit-xml-catalog ] ;
 fi
 
 %files -f %{name}_list
+%license COPYING
 %defattr(-, root, root)
 %config %{_sysconfdir}/xml/%{name}.xml
 %config %{_sysconfdir}/xml/%{FOR_ROOT_CAT}
