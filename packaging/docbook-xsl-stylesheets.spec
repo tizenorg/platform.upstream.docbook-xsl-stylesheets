@@ -9,6 +9,7 @@ Summary:        XSL Stylesheets for DocBook 4
 Url:            http://sourceforge.net/projects/docbook/
 Group:          Productivity/Publishing/DocBook
 Source0:        http://switch.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-%{pack_vers}.tar.bz2
+Source1001: 	docbook-xsl-stylesheets.manifest
 BuildRequires:  fdupes
 BuildRequires:  sgml-skel
 BuildRequires:  unzip
@@ -54,6 +55,7 @@ http://www.w3.org/Style/XSL/
 
 %prep
 %setup -q -n docbook-xsl-%{pack_vers} 
+cp %{SOURCE1001} .
 
 # mv epub/bin/dbtoepub epub/bin/dbtoepub.tmp
 sed -i 's=@@EPUBDIR@@=%{xml_mod_style_prod_dir}/current//epub/bin='  epub/bin/dbtoepub
@@ -202,6 +204,7 @@ if [ ! -f %{xml_sysconf_dir}/%{FOR_ROOT_CAT} -a -x /usr/bin/edit-xml-catalog ] ;
 fi
 
 %files -f %{name}_list
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %config %{_sysconfdir}/xml/%{name}.xml
 %config %{_sysconfdir}/xml/%{FOR_ROOT_CAT}
