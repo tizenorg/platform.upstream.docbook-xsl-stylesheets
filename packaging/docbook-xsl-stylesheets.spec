@@ -1,15 +1,14 @@
-%define pack_vers 1.77.1
 %define regcat /usr/bin/sgml-register-catalog
 
 Name:           docbook-xsl-stylesheets
-Version:        1.77.1
+Version:        1.78.1
 Release:        0
 License:        MPL-1.1 and MIT
 Summary:        XSL Stylesheets for DocBook 4
 Url:            http://sourceforge.net/projects/docbook/
-Group:          Productivity/Publishing/DocBook
-Source0:        http://switch.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-%{pack_vers}.tar.bz2
-Source1001: 	docbook-xsl-stylesheets.manifest
+Group:          Base/Utilities
+Source0:        http://switch.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-%{version}.tar.bz2
+Source1001:     docbook-xsl-stylesheets.manifest
 BuildRequires:  fdupes
 BuildRequires:  sgml-skel
 BuildRequires:  unzip
@@ -54,7 +53,7 @@ http://www.w3.org/Style/XSL/
 %define xml_sysconf_dir %{_sysconfdir}/xml
 
 %prep
-%setup -q -n docbook-xsl-%{pack_vers} 
+%setup -q -n docbook-xsl-%{version} 
 cp %{SOURCE1001} .
 
 # mv epub/bin/dbtoepub epub/bin/dbtoepub.tmp
@@ -214,5 +213,3 @@ fi
 # it is now in the list:
 # %%{xml_mod_style_prod_dir}/current
 %{_bindir}/*
-
-%changelog
